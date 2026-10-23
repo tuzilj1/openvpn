@@ -230,6 +230,10 @@ struct tuntap
 #ifdef HAVE_NET_IF_UTUN_H
     bool is_utun;
 #endif
+#ifdef TARGET_DARWIN
+    /* kext-less tap emulation via a feth(4) interface pair, NULL if unused */
+    struct darwin_feth *feth;
+#endif
     /* used for printing status info only */
     unsigned int rwflags_debug;
 
